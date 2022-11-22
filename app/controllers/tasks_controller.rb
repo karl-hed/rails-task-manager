@@ -12,9 +12,6 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
-    # @task = Task.new(task_params)
-    # @task.save
-    # redirect_to task_path(@task)
   end
 
   def create
@@ -29,6 +26,11 @@ class TasksController < ApplicationController
   def update
     @task.update(task_params)
     redirect_to task_path(@task)
+  end
+
+  def destroy
+    @task.destroy
+    redirect_to tasks_path, status: :see_other
   end
 
   private
